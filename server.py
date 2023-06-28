@@ -17,6 +17,6 @@ if __name__ == "__main__":
   server = ThreadedServer(DBList(), port = PORT) # cria um objeto ThreadedServer, que representa o servidor RPC
   # > DBList representa o serviço que o servidor fornecerá
   # > port=PORT especifica a porta em que o servidor será executado
+  print('starting server')
   server.start() # inicia o servidor RPC
-  print('server on')
 
