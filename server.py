@@ -10,9 +10,31 @@ class DBList(rpyc.Service): # implementa o serviço RPC
     self.value = self.value + [data]
     return self.value
 
+  def exposed_remove(self, data): # remove da lista os elementos com valor de data
+    print('execute exposed_remove')
+    while data in self.value:
+      self.value.remove(data)
+    return self.value
+  
+  def exposed_sort_asc(self, data): # ordena a lista em ordem crescente
+    print('execute exposed_sort_asc')
+    return self.value.sort()
+
+  def exposed_sort_desc(self, data): # ordena a lista em ordem decrescente
+    print('execute exposed_sort_desc')
+    return self.value.sort().reverse()
+
+    def exposed_sort_desc(self, data): # ordena a lista em ordem decrescente
+    print('execute exposed_sort_desc')
+    return self.value.sort().reverse()
+
   def exposed_value(self): # retorna a lista
     print('execute exposed_value')
     return self.value
+
+  def exposed_element(self, data): # retorna um elemento da lista pelo índice
+    print('execute exposed_element')
+    return self.value[data] # bão de fazer uma validação pra n retornar um null ou undefined
 
 # inicialização do servidor
 if __name__ == "__main__":
