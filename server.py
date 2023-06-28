@@ -6,10 +6,12 @@ class DBList(rpyc.Service): # implementa o serviço RPC
   value = [] # os dados serão armazenados aqui
 
   def exposed_append(self, data): # adiciona o argumento à lista e a retorna
+    print('execute exposed_append')
     self.value = self.value + [data]
     return self.value
 
   def exposed_value(self): # retorna a lista
+    print('execute exposed_value')
     return self.value
 
 # inicialização do servidor

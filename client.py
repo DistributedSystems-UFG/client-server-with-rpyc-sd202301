@@ -2,6 +2,8 @@ import rpyc
 from constRPYC import * #-
 
 class Client:
+  print(SERVER);
+  print(PORT);
   conn = rpyc.connect(SERVER, PORT) # Connect to the server
   print (conn.root.exposed_value())
   # conn.root é um objeto que representa o serviço remoto fornecido pelo servidor RPC
