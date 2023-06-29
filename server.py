@@ -42,7 +42,7 @@ class DBList(rpyc.Service): # implementa o serviço RPC
   def exposed_replace_all(self, data, newValue): # substitui todos os elementos com valor data pro valor newData
     print('execute exposed_replace_all')
     while data in self.value:
-      let idx = self.value.index(data)
+      idx = self.value.index(data)
       self.value[idx] = newValue
     return self.value
 
