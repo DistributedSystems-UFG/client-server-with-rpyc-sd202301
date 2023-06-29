@@ -15,18 +15,21 @@ class DBList(rpyc.Service): # implementa o serviço RPC
     while data in self.value:
       self.value.remove(data)
     return self.value
+
+  def exposed_reset_list(self): # esvazia a lista
+    print('execute exposed_reset_list')
+    self.value = []
+    return self.value
   
-  def exposed_sort_asc(self, data): # ordena a lista em ordem crescente
+  def exposed_sort_asc(self): # ordena a lista em ordem crescente
     print('execute exposed_sort_asc')
+    self.value.sort()
     return self.value.sort()
 
-  def exposed_sort_desc(self, data): # ordena a lista em ordem decrescente
+  def exposed_sort_desc(self): # ordena a lista em ordem decrescente
     print('execute exposed_sort_desc')
-    return self.value.sort().reverse()
-
-    def exposed_sort_desc(self, data): # ordena a lista em ordem decrescente
-    print('execute exposed_sort_desc')
-    return self.value.sort().reverse()
+    self.value.sort().reverse()
+    return self.value
 
   def exposed_value(self): # retorna a lista
     print('execute exposed_value')
@@ -35,6 +38,13 @@ class DBList(rpyc.Service): # implementa o serviço RPC
   def exposed_element(self, data): # retorna um elemento da lista pelo índice
     print('execute exposed_element')
     return self.value[data] # bão de fazer uma validação pra n retornar um null ou undefined
+
+  def exposed_replace_all(self, data, newValue): # substitui todos os elementos com valor data pro valor newData
+    print('execute exposed_replace_all')
+    while data in self.value:
+      let idx = self.value.index(data)
+      self.value[idx] = newValue
+    return self.value
 
 # inicialização do servidor
 if __name__ == "__main__":
