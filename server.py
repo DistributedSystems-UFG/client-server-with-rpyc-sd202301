@@ -24,11 +24,12 @@ class DBList(rpyc.Service): # implementa o serviço RPC
   def exposed_sort_asc(self): # ordena a lista em ordem crescente
     print('execute exposed_sort_asc')
     self.value.sort()
-    return self.value.sort()
+    return self.value
 
   def exposed_sort_desc(self): # ordena a lista em ordem decrescente
     print('execute exposed_sort_desc')
-    self.value.sort().reverse()
+    self.value.sort()
+    self.value.reverse()
     return self.value
 
   def exposed_value(self): # retorna a lista

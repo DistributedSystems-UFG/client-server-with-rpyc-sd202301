@@ -17,7 +17,7 @@ class Client:
   # conn.root.exposed_value() retorna a lista
 
   # ordenar decrescentemente
-  conn.root.exposed_sort_desc(5)
+  conn.root.exposed_sort_desc()
   print ("Lista ordenada (desc)", conn.root.exposed_value())
 
   # ordenar crescentemente
